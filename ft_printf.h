@@ -6,7 +6,7 @@
 /*   By: ydemyden <ydemyden@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 17:37:31 by ydemyden          #+#    #+#             */
-/*   Updated: 2024/09/14 19:27:42 by ydemyden         ###   ########.fr       */
+/*   Updated: 2024/09/25 19:30:27 by ydemyden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 
-int	ft_printf(const char *str, ...);
+void	ft_putchar(char c, int *l);
+int		ft_printf(const char *str, ...);
 
 #endif

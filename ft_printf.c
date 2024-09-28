@@ -6,7 +6,7 @@
 /*   By: ydemyden <ydemyden@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 17:38:55 by ydemyden          #+#    #+#             */
-/*   Updated: 2024/09/25 19:33:30 by ydemyden         ###   ########.fr       */
+/*   Updated: 2024/09/28 18:23:42 by ydemyden         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,24 @@ void	ft_putchar(char c, int *l)
 	(*l)++;
 }
 
-void	format_check(char s, va_list *args, int *l, int *i)
+void	ft_putstr(char *s, int *l)
 {
-	if (s == 'c')
-		ft_putchar((char)va_arg(*args, int), l);
+	while (*s)
+		ft_putchar(*s++, l);
+}
+
+void	format_check(char x, va_list *args, int *l, int *i)
+{
+	if (x == 'c')
+		ft_putchar(va_arg(*args, int), l);
+	if (x == 's')
+		ft_putstr(va_arg(*args, char *), l);
 }
 
 int	ft_printf(const char *str, ...)
 {
-	int	i;
-	int	l;
+	int		i;
+	int		l;
 	va_list	args;
 
 	i = 0;
@@ -38,7 +46,7 @@ int	ft_printf(const char *str, ...)
 		if (str[i] == '%')
 		{
 			i++;
-			format_check(str[i],&args, &l, &i);
+			format_check(str[i], &args, &l, &i);
 			i++;
 		}
 		else
@@ -47,11 +55,12 @@ int	ft_printf(const char *str, ...)
 		}
 	}
 	va_end(args);
-	return(l);
+	return (l);
 }
 
 int	main(void)
 {
-	ft_printf("%c", 'a');
+	ft_printf("%c", 'b');
+	ft_printf("%s", "\njdk");
 	return (0);
 }

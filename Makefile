@@ -1,6 +1,7 @@
 NAME = libftprintf.a
 SOURCES = \
 		ft_printf.c \
+		nmb_functions.c\
 
 OBJECTS = $(SOURCES:.c=.o)
 
